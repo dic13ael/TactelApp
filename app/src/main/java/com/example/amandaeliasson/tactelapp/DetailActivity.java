@@ -1,7 +1,9 @@
 package com.example.amandaeliasson.tactelapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -9,5 +11,14 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        TextView headerText = findViewById(R.id.header);
+        TextView bodyText = findViewById(R.id.body);
+        TextView linkText = findViewById(R.id.link);
+        Intent intent = getIntent();
+        headerText.setText(intent.getStringExtra(ListItem.ARG_HEADER));
+        bodyText.setText(intent.getStringExtra(ListItem.ARG_BODY));
+        linkText.setText(intent.getStringExtra(ListItem.ARG_LINK));
+
     }
 }
