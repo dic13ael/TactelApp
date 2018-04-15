@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ArrayAdapter<String> adaper = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        final NewsItemAdapter adaper = new NewsItemAdapter(this, android.R.layout.simple_list_item_1);
         ListView listView = findViewById(R.id.list_view);
         listView.setAdapter(adaper);
         new AsyncTask<Void, Void, List<NewsItem>>() {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<NewsItem> result) {
                 for(NewsItem newsItem:result ){
-                    adaper.add(newsItem.getHeader());
+                    adaper.add(newsItem);
                 }
             }
         }.execute();
