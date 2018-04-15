@@ -18,9 +18,9 @@ public class DetailActivity extends AppCompatActivity {
         TextView bodyText = findViewById(R.id.body);
         TextView linkText = findViewById(R.id.link);
         Intent intent = getIntent();
-        final String link = intent.getStringExtra(ListItem.ARG_LINK);
-        headerText.setText(intent.getStringExtra(ListItem.ARG_HEADER));
-        bodyText.setText(intent.getStringExtra(ListItem.ARG_BODY));
+        final String link = intent.getStringExtra(NewsListItem.ARG_LINK);
+        headerText.setText(intent.getStringExtra(NewsListItem.ARG_HEADER));
+        bodyText.setText(intent.getStringExtra(NewsListItem.ARG_BODY));
         linkText.setText(link);
         linkText.setOnClickListener(new View.OnClickListener() {
             @Override

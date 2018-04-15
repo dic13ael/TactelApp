@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import java.util.List;
-
 /**
  * Created by amandaeliasson on 2018-04-15.
  */
@@ -25,7 +23,7 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         NewsItem newsItem = getItem(position);
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ListItem listItem = (ListItem) inflater.inflate(R.layout.list_item, null);
+        NewsListItem listItem = (NewsListItem) inflater.inflate(R.layout.list_item, null);
         listItem.setNewsItem(newsItem);
         return listItem;
 

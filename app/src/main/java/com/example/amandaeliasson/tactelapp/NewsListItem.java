@@ -15,31 +15,30 @@ import com.example.amandaeliasson.tactelapp.NewsItem;
  * Created by amandaeliasson on 2018-04-15.
  */
 
-public class ListItem extends TextView {
+public class NewsListItem extends TextView {
     NewsItem newsItem;
     public static String ARG_HEADER = "ARG_HEADER";
     public static String ARG_BODY = "ARG_BODY";
     public static String ARG_LINK = "ARG_LINK";
 
-    public ListItem(Context context) {
-        super(context);
-    }
-    public ListItem(Context context, NewsItem newsItem){
+    public NewsListItem(Context context) {
         super(context);
         init(context);
     }
 
-    public ListItem(Context context, @Nullable AttributeSet attrs) {
+    public NewsListItem(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public ListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public NewsListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
     }
 
-    public ListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public NewsListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(context);
     }
     public void setNewsItem(NewsItem newsItem){
         this.newsItem = newsItem;
@@ -49,6 +48,7 @@ public class ListItem extends TextView {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
                 Intent intent = new Intent(context, DetailActivity.class);
                 String header = newsItem.getHeader();
                 String body = newsItem.getBody();

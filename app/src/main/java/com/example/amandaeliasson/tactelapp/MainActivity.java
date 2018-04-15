@@ -24,15 +24,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final NewsItemAdapter adaper = new NewsItemAdapter(this, android.R.layout.simple_list_item_1);
+        final NewsItemAdapter adapter = new NewsItemAdapter(this, android.R.layout.simple_list_item_1);
         ListView listView = findViewById(R.id.list_view);
-        listView.setAdapter(adaper);
-        new AsyncTask<Void, Void, List<NewsItem>>() {
+        listView.setAdapter(adapter);
+        new AsyncTask<String, Void, List<NewsItem>>() {
             @Override
-            protected List<NewsItem> doInBackground(Void... voids) {
-                URL url = null;
+            protected List<NewsItem> doInBackground(String... args) {
                 try {
-                    InputStream inputStream = downloadUrl("https://www.dn.se/nyheter/m/rss/");
+                    InputStream inputStream = downloadUrl(args[0]);
                     List<NewsItem> newsItems = parseNewsItems(inputStream);
                     return newsItems;
 
@@ -42,18 +41,18 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                return null;
+                return new LinkedList<NewsItem>();
             }
 
             @Override
             protected void onPostExecute(List<NewsItem> result) {
                 for(NewsItem newsItem:result ){
-                    adaper.add(newsItem);
+                    adapter.add(newsItem);
                 }
             }
-        }.execute();
+        }.execute("https://www.dn.se/nyheter/m/rss/");
     }
-    public List<NewsItem> parseNewsItems(InputStream inputStream) {
+    private List<NewsItem> parseNewsItems(InputStream inputStream) {
         String title = null;
         String link = null;
         String description = null;
