@@ -5,20 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.amandaeliasson.tactelapp.DetailActivity">
+    tools:context="com.example.amandaeliasson.tactelapp.DetailActivity"
+    android:padding="10dp">
+
     <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/header"
-    />
-    <TextView
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        />
+
+    <TextView
         android:id="@+id/body"
-        />
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/link"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor ="@android:color/holo_blue_dark"/>
 </LinearLayout>

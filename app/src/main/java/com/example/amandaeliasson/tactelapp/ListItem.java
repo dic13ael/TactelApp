@@ -26,13 +26,12 @@ public class ListItem extends TextView {
     }
     public ListItem(Context context, NewsItem newsItem){
         super(context);
-        this.newsItem = newsItem;
-        setText(newsItem.getHeader());
         init(context);
     }
 
     public ListItem(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public ListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -41,6 +40,10 @@ public class ListItem extends TextView {
 
     public ListItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+    }
+    public void setNewsItem(NewsItem newsItem){
+        this.newsItem = newsItem;
+        setText(newsItem.getHeader());
     }
     public void init(final Context context) {
         setOnClickListener(new OnClickListener() {
